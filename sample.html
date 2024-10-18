@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Interactive Responsive Cards</title>
+    <style>
+      * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    flex: 1 1 calc(33.333% - 1.5rem);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.card p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+    z-index: 2;
+    position: relative;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #007bff;
+    transition: left 0.3s ease;
+    z-index: 1;
+    opacity: 0.7;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    background-color: #007bff;
+    color: #fff;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.card:hover::before {
+    left: 0;
+}
+
+.card:hover p {
+    color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 calc(50% - 1.5rem);
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        flex: 1 1 100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <section class="card-container">
+        <div class="card">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget tortor risus.</p>
+        </div>
+        <div class="card">
+            <p>Curabitur aliquet quam id dui posuere blandit. Nulla porttitor accumsan tincidunt.</p>
+        </div>
+        <div class="card">
+            <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.</p>
+        </div>
+    </section>
+</body>
+</html>
